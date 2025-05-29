@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = () => {
     return (
         <nav>
-            <div className="mx-auto max-w-[1280px] flex justify-between items-center">
+            <div className="container mx-auto py-8 px-2 flex justify-between items-center">
                 <div className="nav-brand">
                     <Link href="/">
                         <Image
@@ -16,7 +16,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <ul className="flex gap-4 text-[#9C9C9C] list-none">
+                <ul className="flex gap-4 text-[#9C9C9C]">
                     <li className="">About</li>
                     <li className="">Contact Us</li>
                 </ul>

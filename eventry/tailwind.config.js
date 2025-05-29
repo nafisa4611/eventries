@@ -3,10 +3,9 @@ module.exports = {
     container: {
       center: true,
       padding: "1rem",
-      screens: {
-        xl: "1280px", 
-      },
+      maxWidth: "1919px",
     },
+    extend:{}
   },
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",

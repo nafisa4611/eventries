@@ -1,9 +1,12 @@
+import EventList from "@/components/Landing/EventList";
+import Header from "@/components/Landing/Header";
 
 
 export default function Home() {
   return (
-    <section className="mx-auto px-4 max-w-[1280px]">
-      Event
+    <section className="container mx-auto px-2">
+      <Header />
+      <EventList />
     </section>
   );
 }
