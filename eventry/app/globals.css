@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 @layer base {
@@ -11,7 +9,7 @@
 }
 
 button {
-    background-color: rgb(113, 54, 213);
+    background-color: #464849;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 0.5rem;
@@ -20,16 +18,16 @@ button {
     border: 1px solid rgba(95, 95, 95, 0.5);
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     cursor: pointer;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform;
+    transition-property: background-color;
     transition-duration: 150ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 button:hover {
-    background-color: blueviolet;
+    background-color: #3C3D3D;
 }
 button:active {
     transform: translateY(0.25rem);
 }
+
 @layer components {
   .login-form {
     @apply flex flex-col my-6;

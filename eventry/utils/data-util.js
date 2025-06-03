@@ -1,15 +1,24 @@
+// Deeply serialize an object or array (handles nested values, Buffers, Dates, etc.)
+export const deepSerialize = (data) => {
+  return JSON.parse(JSON.stringify(data));
+};
+
 export const replaceMongoIdInArray = (array) => {
-    const mappedArray = array.map(item => {
-      return {
-        id: item._id.toString(),
-        ...item
-      }
-    }).map(({_id, ...rest}) => rest);
+  return array.map(item => {
+    return {
+      id: item._id?.toString(),
+      ...deepSerialize({ ...item })
+    };
+  }).map(({ _id, ...rest }) => rest);
+};
 
-    return mappedArray;
-  }
+export const replaceMongoIdInObject = (obj) => {
+  if (!obj || typeof obj !== 'object') return obj;
 
-  export const replaceMongoIdInObject = (obj) => {
-    const {_id, ...updatedObj} = {...obj, id: obj._id.toString()};
-   return updatedObj;
-  }
+  const { _id, ...rest } = {
+    ...deepSerialize(obj),
+    id: obj._id?.toString(),
+  };
+
+  return rest;
+};

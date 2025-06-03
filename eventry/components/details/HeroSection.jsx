@@ -1,9 +1,9 @@
-import ActionButtons from "../ActionButtons"
-import Image from "next/image";
+import Image from 'next/image';
+import ActionButtons from '../ActionButtons';
 
-export default function HeroSection({ eventInfo}) {
+const HeroSection = ({eventInfo}) => {
   return (
-    <section className="container mx-auto px-2">
+    <section className="container">
       <div className="bg-gradient-to-b from-slate-200/20 to-slate-800/30">
         <Image
           src={eventInfo?.imageUrl}
@@ -12,6 +12,8 @@ export default function HeroSection({ eventInfo}) {
           width={900}
           height={900} />
       </div>
+
+
       <div className="flex items-end">
         <div className="flex-auto py-4">
           <h1 className="font-bold text-2xl">{eventInfo?.name}</h1>
@@ -23,8 +25,10 @@ export default function HeroSection({ eventInfo}) {
           </div>
         </div>
 
-        <ActionButtons fromDetails={true}/>
+        <ActionButtons eventId={eventInfo?.id} interestedUserIds={eventInfo?.interested_ids} fromDetails={true}/>
       </div>
     </section>
   )
 }
+
+export default HeroSection

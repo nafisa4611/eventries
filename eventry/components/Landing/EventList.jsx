@@ -1,3 +1,5 @@
+
+
 import EventCard from "./EventCard"
 import { getAllEvents } from "@/db/queries"
 
