@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import ActionButtons from '../ActionButtons';
 
-const HeroSection = ({eventInfo}) => {
+const HeroSection = ({ eventInfo }) => {
   return (
-    <section className="container">
+    <section className="container mx-auto">
       <div className="bg-gradient-to-b from-slate-200/20 to-slate-800/30">
         <Image
           src={eventInfo?.imageUrl}
@@ -25,7 +25,7 @@ const HeroSection = ({eventInfo}) => {
           </div>
         </div>
 
-        <ActionButtons eventId={event?.id} interestedUserIds={event?.interested_ids} goingUserIds={event?.going_ids} fromDetails={true}/>
+        <ActionButtons eventId={eventInfo?.id} interestedUserIds={eventInfo?.interested_ids} goingUserIds={eventInfo?.going_ids} fromDetails={true} />
       </div>
     </section>
   )

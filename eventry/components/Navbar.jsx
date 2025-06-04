@@ -5,7 +5,7 @@ import SignInOut from "./auth/SignInOut";
 const Navbar = () => {
     return (
         <nav>
-            <div className="container mx-auto py-8 px-2 flex justify-between items-center">
+            <div className="container mx-auto py-4 px-2 flex justify-between items-center">
                 <div className="nav-brand">
                     <Link href="/">
                         <Image

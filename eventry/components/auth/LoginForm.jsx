@@ -46,7 +46,7 @@ export default function LogInForm() {
 
                 <button
                     type="submit"
-                    className="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
+                    className="btn-primary w-full mt-4 py-8 bg-indigo-600 hover:bg-indigo-800"
                 >
                     Login
                 </button>

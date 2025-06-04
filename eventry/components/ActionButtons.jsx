@@ -1,35 +1,28 @@
 "use client";
-
-import Link from "next/link";
 import { useState } from "react";
 import { useAuth } from "@/app/hooks/useAuth";
-
 import { useRouter } from "next/navigation";
-
 import { useTransition } from "react";
-
 import { addInterestedEvent } from "@/app/actions";
 
 const ActionButtons = ({ eventId, interestedUserIds, goingUserIds, fromDetails }) => {
     const { auth } = useAuth();
-
     const router = useRouter();
-
     const isInterested = interestedUserIds?.find((id) => id === auth?.id);
     const isGoing = goingUserIds?.find(id => id === auth?.id);
-
     const [interested, setInterested] = useState(isInterested);
     const [going, setGoing] = useState(isGoing);
     const [isPending, startTransition] = useTransition();
 
     const toggleInterest = async () => {
         if (auth) {
-            addInterestedEvent(eventId, auth?.id);
+            await addInterestedEvent(eventId, auth?.id); // ✅ await
             setInterested(!interested);
         } else {
             router.push("/login");
         }
     };
+
 
     const markGoing = () => {
         if (auth) {
@@ -47,19 +40,21 @@ const ActionButtons = ({ eventId, interestedUserIds, goingUserIds, fromDetails }
                         toggleInterest();
                     })
                 }
-                className={`w-full ${
-                    interested && "bg-indigo-600 hover:bg-indigo-800"
-                }`}
+                className={`base-button w-full text-white ${interested ? "bg-indigo-600 hover:bg-indigo-900" : ""
+                    }`}
+
             >
                 Interested
             </button>
             <button
                 disabled={auth && going}
                 onClick={markGoing}
-                className=" text-center w-full bg-[#464849] py-2 px-2 rounded-md border border-[#5F5F5F]/50 shadow-sm cursor-pointer hover:bg-[#3C3D3D] transition-colors active:translate-y-1"
+                className={`text-center base-button w-full py-2 px-2 rounded-md border shadow-sm cursor-pointer transition-colors active:translate-y-1
+    ${going ? "bg-green-600 hover:bg-green-700 text-white" : "bg-[#464849] hover:bg-[#3C3D3D] text-white"}`}
             >
-                Going
+                {going ? "Going ✔" : "Going"}
             </button>
+
         </div>
     );
 };
