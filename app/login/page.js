@@ -1,4 +1,4 @@
-import LogInForm from "@/components/auth/LogInForm";
+import LogInForm from '@/components/auth/LogInForm'
 import Link from 'next/link'
 
 export default function LogInPage() {
